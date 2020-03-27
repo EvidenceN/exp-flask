@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p> Cute cat iamges</p>
+
+    <img src= {{picture}} height="200" width="200">
+
+    <!--button to click for new image-->
+    <form action="/">
+        <button type="submit" style="background-color: crimson;">New Cat PLEASE</button>
+    </form>
+<!--drop down menu for searching. displays the name of the breed but under the name of the breed is the id value of the breed.-->
+    <form action="/breed", method="POST">
+        <select name="category">
+            {% for id, breed in breeds.items() %}
+            <option value="{{id}}">{{breed}}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" style="background-color: darkmagenta;">Search by breed </button>
+    </form>
+
+<p> This cat is a {{breed}}</p>
+
+<!--form for saving cat files-->
+
+<form action="/saved-cats", method="POST">
+    <select name="CAT_URL"> 
+        <option value="{{picture}}"></option>
+    </select>
+    <button type="submit" style="background-color: darkturquoise;" value="{{picture}}"> Save Cat Pics </button>
+</form>
+</body>
+</html>
